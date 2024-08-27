@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Algos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    
+    <nav class="navbar navbar-expand-lg bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="/">Machine Learning Algos</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Regression Algo Projects
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item">
+                                <a class="nav-link bg-success text-white" aria-current="page" href="/car-price-prediction">Car Price Prediction</a>
+                            </li>
+                        </ul>
+                      </li>
+                  
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row p-2">
+            <div class="col-lg-12">
+                <h1>Car Price Prediction</h1>
+                <hr />
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto eaque ratione at? Fugiat, fuga? Ea numquam quo corrupti commodi quaerat assumenda ducimus odit unde, tempora sunt doloribus? Ratione autem, blanditiis pariatur eius, ab iusto porro, unde rerum rem quidem temporibus fugit deleniti quibusdam dignissimos accusamus facere perspiciatis ipsam nemo in voluptas nihil! Similique dignissimos incidunt aut recusandae eos assumenda fugit quae pariatur optio hic nesciunt ad inventore sapiente voluptate at iusto impedit, distinctio dicta doloremque quis modi voluptatibus sit magnam? Quam pariatur unde ratione illum? Officiis esse minima nobis quo tempora corrupti, accusamus explicabo ut itaque animi dicta nemo? Facere beatae et repellendus, placeat labore consequuntur excepturi voluptatum porro eum itaque nobis repellat, sunt enim quis quae culpa officiis error incidunt, non mollitia voluptas eligendi. Est laborum deleniti commodi officiis aperiam magnam rerum, ducimus fuga cum exercitationem veniam ratione natus distinctio molestiae minus repellendus modi asperiores? Earum illo aliquam neque quaerat ex vel harum accusantium impedit reprehenderit eos at incidunt, est quam quod voluptatem corporis reiciendis. Culpa dolor laudantium, provident hic saepe harum minima ipsum architecto asperiores sunt nobis dolores rerum quaerat iure. Odio praesentium molestias consequatur facere cum atque ipsa ea, soluta vel tempora, minima voluptatem facilis fugiat eveniet.
+                    Predicting car prices accurately requires a detailed analysis of various factors, including the make and model of the car, its age, mileage, condition, location, market demand, and economic trends. As an AI language model, I don't have real-time access to current market data, and my training only goes up until September 2021. Therefore, I cannot provide you with specific price predictions for cars in the current market.
+                    To get the most accurate and up-to-date price predictions for a specific car, I recommend using online car valuation tools or consulting with automotive experts who have access to real-time market data. These resources consider the latest market trends, historical data, and the specific details of the vehicle to provide a more accurate estimation of its value.
+                    Additionally, factors such as negotiation skills, seller motivation, and local market conditions can also influence the final price of a car. It's always a good idea to research the local market, compare prices of similar vehicles, and consider factors such as the car's condition, service history, and any additional features or modifications when making a purchase or selling decision.
+                </p>
+            </div>
+            <div class="col-lg-12">
+                <h2>Check Your Prediction</h2>
+                <form action="/car-price-prediction-result" method="get">
+                    <div class="form-group">
+                        <label>COMPANY</label>
+                        <select class="form-control" name="company" required>
+                            <option value="">Select Company</option>
+                            {% for company in companies %}
+                            <option value="{{ company }}">{{ company }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group mt-4">
+                        <label>NAME</label>
+                        <select class="form-control" name="name" required>
+                            <option value="">Select Name</option>
+                            {% for name in names %}
+                            <option value="{{ name }}">{{ name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group mt-4">
+                        <label>YEAR</label>
+                        <select class="form-control" name="year" required>
+                            <option value="">Select Year</option>
+                            {% for year in range(2000, 2024) %}
+                            <option value="{{ year }}">{{ year }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group mt-4">
+                        <label>KMS RUNNING</label>
+                        <input type="number" min="0" class="form-control" required name="kms_running" />
+                    </div>
+                    <div class="form-group mt-4">
+                        <label>FUEL TYPE</label>
+                        <select class="form-control"  name="fuel_type" required>
+                            <option value="">Select Fuel Type</option>
+                            <option value="Petrol">Petrol</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="LPG">LPG</option>
+                        </select>
+                    </div>
+                    <div class="form-group mt-4 mb-5">
+                        <input type="submit" class="btn btn-success" value="PREDICT" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
